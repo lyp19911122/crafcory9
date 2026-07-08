@@ -58,7 +58,7 @@ export default function MeasurementForm({ measurements, onChange, onGenerate }: 
               onChange={(e) => onChange({ ...measurements, [field.key]: parseFloat(e.target.value) })}
               className="w-full h-2 rounded-full appearance-none cursor-pointer"
               style={{
-                background: `linear-gradient(to right, #D4A5A5 ${((measurements[field.key] - field.min) / (field.max - field.min)) * 100}%, #E8D5C4 ${((measurements[field.key] - field.min) / (field.max - field.min)) * 100}%)`,
+                background: `linear-gradient(to right, #D4A5A5 ${((Number(measurements[field.key]) - field.min) / (field.max - field.min)) * 100}%, #E8D5C4 ${((Number(measurements[field.key]) - field.min) / (field.max - field.min)) * 100}%)`,
                 accentColor: '#D4A5A5',
               }}
             />

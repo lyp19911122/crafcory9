@@ -68,8 +68,8 @@ export default function VestPatternPage() {
       svgContent += ` Z" fill="${colors[idx]}20" stroke="${colors[idx]}" stroke-width="1.5"/>`
 
       // Labels
-      const cx = pts.reduce((s, p) => s + p.x, 0) / pts.length
-      const cy = pts.reduce((s, p) => s + p.y, 0) / pts.length
+      const cx = pts.reduce((s: number, p: {x: number; y: number}) => s + p.x, 0) / pts.length
+      const cy = pts.reduce((s: number, p: {x: number; y: number}) => s + p.y, 0) / pts.length
       svgContent += `<text x="${cx}" y="${cy - 5}" text-anchor="middle" font-size="4" font-family="sans-serif" fill="#5C4033" font-weight="bold">${piece.nameCn}</text>`
       svgContent += `<text x="${cx}" y="${cy + 4}" text-anchor="middle" font-size="3.5" font-family="sans-serif" fill="#8B8B8B">${piece.label}</text>`
     })

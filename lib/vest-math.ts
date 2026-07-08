@@ -21,7 +21,7 @@
  *   Leg: +3cm
  */
 
-import { PetMeasurements, PatternPiece, PatternResult } from './types'
+import { PetMeasurements, PatternPiece, PatternResult } from './pet-types'
 
 const SEAM_ALLOWANCE = 1 // 1cm seam allowance
 const EASE_NECK = 2
@@ -189,10 +189,10 @@ export function generateVestPattern(measurements: PetMeasurements): PatternResul
 
   // Calculate approximate fabric needed
   const maxWidth = Math.max(
-    ...pieces.flatMap((p) => p.points.map((pt) => Math.abs(pt.x)))
+    ...pieces.flatMap((p: PatternPiece) => p.points.map((pt: {x: number;y: number}) => Math.abs(pt.x)))
   ) * 2 + SEAM_ALLOWANCE * 4
   const maxLength = Math.max(
-    ...pieces.flatMap((p) => p.points.map((pt) => pt.y))
+    ...pieces.flatMap((p: PatternPiece) => p.points.map((pt: {x: number;y: number}) => pt.y))
   ) + SEAM_ALLOWANCE * 4
 
   return {
@@ -238,7 +238,7 @@ export function getDisplayPoints(
 
   return pieces.map((piece) => ({
     ...piece,
-    points: piece.points.map((p) => ({
+    points: piece.points.map((p: {x: number; y: number}) => ({
       x: p.x * scale + offsetX,
       y: p.y * scale + offsetY,
     })),
