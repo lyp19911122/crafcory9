@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+@layer base {
+  body {
+    @apply bg-macaron-cream text-macaron-brown font-body;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-macaron-pink hover:bg-macaron-rose text-white font-medium py-3 px-8 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-macaron-pink/30 active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply bg-white border-2 border-macaron-pink text-macaron-pink hover:bg-macaron-pink hover:text-white font-medium py-3 px-8 rounded-full transition-all duration-300 active:scale-95;
+  }
+
+  .btn-ghost {
+    @apply text-macaron-brown hover:text-macaron-pink transition-colors duration-200;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-display font-semibold text-center mb-2;
+  }
+
+  .section-subtitle {
+    @apply text-center text-macaron-brown/60 mb-10 font-body;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300;
+  }
+}
