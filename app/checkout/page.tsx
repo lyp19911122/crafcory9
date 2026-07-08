@@ -203,6 +203,19 @@ export default function CheckoutPage() {
                   }}
                   onApprove={async (data, actions) => {
                     const details = await actions.order!.capture()
+                    // Save order to backend
+                    await fetch('/api/orders', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({
+                        items: items.map(i => ({
+                          product: { name: i.product.name, price: i.product.price },
+                          quantity: i.quantity
+                        })),
+                        total: totalPrice,
+                        customer: customer,
+                      }),
+                    })
                     clearCart()
                     setPaid(true)
                   }}
